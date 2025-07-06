@@ -43,3 +43,12 @@ CREATE TABLE Mekan_Rozetleri (
     rozet_id INTEGER REFERENCES Rozetler(rozet_id),
     PRIMARY KEY (mekan_id, rozet_id)
 );
+
+CREATE TABLE Mekan_Medya (
+    medya_id SERIAL PRIMARY KEY,
+    mekan_id INTEGER REFERENCES Mekanlar(mekan_id) ON DELETE CASCADE,
+    kullanici_id INTEGER REFERENCES Kullanicilar(kullanici_id) ON DELETE SET NULL, -- Medyayı ekleyen kullanıcının ID'si
+    medya_url VARCHAR(255) NOT NULL,
+    medya_tipi VARCHAR(50) NOT NULL, -- 'resim' veya 'video'
+    olusturma_tarihi TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);

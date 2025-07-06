@@ -19,15 +19,15 @@ Bu dosya, "Yeşil Yol" projesinin geliştirme adımlarını ve görevlerini taki
 *   [x] Gerekli teknolojilerin (Flutter, Node.js, Docker) geliştirme ortamına kurulumu ve konfigürasyonu.
 *   [x] Veritabanı şemasının tasarlanması (`Mekanlar`, `Kullanıcılar`, `Rozetler`, `Özellikler` tabloları).
 *   [x] Backend: Temel API endpoint'lerinin oluşturulması (`/api/places` - yerleri listele, `/api/places/:id` - yer detayı getir).
-*   [ ] Flutter: Proje iskeletinin oluşturulması ve temel klasör yapısının ayarlanması.
-*   [ ] Flutter: Google Haritalar entegrasyonu ve haritanın ekranda gösterilmesi.
-*   [ ] Flutter: API'den gelen verilerle harita üzerinde özel ikonların (Rampa, WC vb.) gösterilmesi.
-*   [ ] Flutter: Haritadaki bir ikona tıklandığında mekan detaylarını gösteren basit bir bilgi kartının tasarlanması.
-*   [ ] MVP sürümü için veritabanına manuel olarak birkaç örnek mekan verisinin girilmesi.
+*   [x] Flutter: Proje iskeletinin oluşturulması ve temel klasör yapısının ayarlanması.
+*   [x] Flutter: Google Haritalar entegrasyonu ve haritanın ekranda gösterilmesi.
+*   [x] Flutter: API'den gelen verilerle harita üzerinde özel ikonların (Rampa, WC vb.) gösterilmesi.
+*   [x] Flutter: Haritadaki bir ikona tıklandığında mekan detaylarını gösteren basit bir bilgi kartının tasarlanması.
+*   [x] MVP sürümü için veritabanına manuel olarak birkaç örnek mekan verisinin girilmesi.
 
 **Aşama 2: Topluluk ve Etkileşim Özellikleri**
-*   [ ] Kullanıcı kayıt ve giriş sistemi (Authentication - E-posta/şifre ile).
-*   [ ] Backend: Kullanıcıların yeni yer eklemesi ve mevcut yerleri güncellemesi için gerekli API endpoint'lerinin yazılması.
+*   [x] Kullanıcı kayıt ve giriş sistemi (Authentication - E-posta/şifre ile).
+*   [x] Backend: Kullanıcıların yeni yer eklemesi ve mevcut yerleri güncellemesi için gerekli API endpoint'lerinin yazılması.
 *   [ ] Flutter: "Yeni Yer Ekle" formu arayüzünün tasarlanması (fotoğraf yükleme dahil).
 *   [ ] Flutter: Kullanıcıların kendi ekledikleri yerleri görebileceği basit bir profil sayfası.
 *   [ ] Mekanlar için topluluk tarafından puanlama veya doğrulama sistemi altyapısının kurulması.

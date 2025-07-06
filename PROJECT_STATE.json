@@ -1,0 +1,106 @@
+{
+  "project_name": "Yeşil Yol",
+  "technical_stack": {
+    "frontend": "Flutter",
+    "backend": "Node.js (Express.js)",
+    "database": "PostgreSQL + PostGIS",
+    "map_service": "Google Maps Platform",
+    "infrastructure": "Docker (Planned, not yet implemented)"
+  },
+  "completed_tasks": [
+    {
+      "id": "MVP_1",
+      "description": "Proje yapısının oluşturulması (Backend ve Flutter için klasörlerin ve temel dosyaların hazırlanması)."
+    },
+    {
+      "id": "MVP_2",
+      "description": "Gerekli teknolojilerin (Flutter, Node.js, Docker) geliştirme ortamına kurulumu ve konfigürasyonu."
+    },
+    {
+      "id": "MVP_3",
+      "description": "Veritabanı şemasının tasarlanması (Kullanicilar, Mekanlar, Rozetler, Özellikler tabloları)."
+    },
+    {
+      "id": "MVP_4",
+      "description": "Backend: Temel API endpoint'lerinin oluşturulması (/api/places - yerleri listele, /api/places/:id - yer detayı getir)."
+    },
+    {
+      "id": "MVP_5",
+      "description": "Flutter: Proje iskeletinin oluşturulması ve temel klasör yapısının ayarlanması."
+    },
+    {
+      "id": "MVP_6",
+      "description": "Flutter: Google Haritalar entegrasyonu ve haritanın ekranda gösterilmesi."
+    },
+    {
+      "id": "MVP_7",
+      "description": "Flutter: API'den gelen verilerle harita üzerinde özel ikonların (Rampa, WC vb.) gösterilmesi."
+    },
+    {
+      "id": "MVP_8",
+      "description": "Flutter: Haritadaki bir ikona tıklandığında mekan detaylarını gösteren basit bir bilgi kartının tasarlanması."
+    },
+    {
+      "id": "MVP_9",
+      "description": "MVP sürümü için veritabanına manuel olarak birkaç örnek mekan verisinin girilmesi."
+    },
+    {
+      "id": "A2_1_Backend",
+      "description": "Kullanıcı kayıt ve giriş sistemi (Authentication - E-posta/şifre ile) - Backend tarafı tamamlandı."
+    }
+  ],
+  "pending_tasks": [
+    {
+      "id": "A2_1_Frontend",
+      "description": "Kullanıcı kayıt ve giriş sistemi (Authentication - E-posta/şifre ile) - Frontend entegrasyonu."
+    },
+    {
+      "id": "A2_2",
+      "description": "Flutter: 'Yeni Yer Ekle' formu arayüzünün tasarlanması (fotoğraf yükleme dahil)."
+    },
+    {
+      "id": "A2_3",
+      "description": "Flutter: Kullanıcıların kendi ekledikleri yerleri görebileceği basit bir profil sayfası."
+    },
+    {
+      "id": "A2_4",
+      "description": "Mekanlar için topluluk tarafından puanlama veya doğrulama sistemi altyapısının kurulması."
+    },
+    {
+      "id": "A3_1",
+      "description": "Erişilebilir toplu taşıma (otobüs hatları vb.) verilerinin araştırılması ve sisteme entegrasyonu."
+    },
+    {
+      "id": "A3_2",
+      "description": "Google Directions API kullanarak iki nokta arasında rota çizme özelliğinin eklenmesi."
+    },
+    {
+      "id": "A3_3",
+      "description": "Rota oluşturma algoritmasının, güzergah üzerindeki erişilebilirlik kriterlerine (rampalı yollar, asansörlü duraklar) göre özelleştirilmesi."
+    },
+    {
+      "id": "A3_4",
+      "description": "Gelişmiş arama ve filtreleme seçenekleri (örneğin, 'sadece 3 Kupalı Yeşil Alan rozetine sahip yerleri göster')."
+    }
+  ],
+  "recent_changes": {
+    "database_schema": {
+      "table_added": "Mekan_Medya",
+      "description": "Mekanlara ait resim ve video URL'lerini, tiplerini ve ekleyen kullanıcı ID'sini tutmak için eklendi. (mekan_id, kullanici_id, medya_url, medya_tipi, olusturma_tarihi)"
+    },
+    "backend_api_updates": {
+      "dependencies_added": ["bcrypt", "jsonwebtoken"],
+      "endpoints_added": ["/api/register (POST)", "/api/login (POST)"],
+      "endpoint_modified": "/api/places/:id (GET) - now includes 'medya' array from Mekan_Medya table."
+    },
+    "frontend_ui_updates": {
+      "map_screen": "Marker onTap now triggers a showModalBottomSheet displaying place details and associated images/videos fetched from the backend."
+    }
+  },
+  "important_notes_for_next_ai": [
+    "Flutter Google Maps API keys (Android/iOS) need to be manually configured in the project.",
+    "Backend JWT_SECRET should be set as an environment variable for production.",
+    "File upload to cloud storage (e.g., AWS S3) is not yet implemented. This is a critical next step for 'Yeni Yer Ekle' functionality.",
+    "Database connection details in backend/db.js should be verified for the specific environment."
+  ]
+}
