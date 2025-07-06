@@ -3,6 +3,9 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:frontend/screens/login_screen.dart';
+import 'package:frontend/services/auth_service.dart';
+import 'add_place_screen.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -13,6 +16,7 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen> {
   final Completer<GoogleMapController> _controller = Completer<GoogleMapController>();
+  final AuthService _authService = AuthService();
   Set<Marker> _markers = {};
   final String _apiUrl = 'http://localhost:3000/api/places';
 
@@ -25,6 +29,15 @@ class _MapScreenState extends State<MapScreen> {
   void initState() {
     super.initState();
     _fetchPlaces();
+  }
+
+  void _logout() async {
+    await _authService.logout();
+    if (!mounted) return;
+    Navigator.of(context).pushAndRemoveUntil(
+      MaterialPageRoute(builder: (context) => const LoginScreen()),
+      (Route<dynamic> route) => false,
+    );
   }
 
   Future<void> _fetchPlaces() async {
@@ -145,6 +158,13 @@ class _MapScreenState extends State<MapScreen> {
       appBar: AppBar(
         title: const Text('Yeşil Yol Haritası'),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: _logout,
+            tooltip: 'Çıkış Yap',
+          )
+        ],
       ),
       body: GoogleMap(
         mapType: MapType.normal,
@@ -153,6 +173,16 @@ class _MapScreenState extends State<MapScreen> {
           _controller.complete(controller);
         },
         markers: _markers,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const AddPlaceScreen()),
+          );
+        },
+        tooltip: 'Yeni Yer Ekle',
+        child: const Icon(Icons.add),
       ),
     );
   }
